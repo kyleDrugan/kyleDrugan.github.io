@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <style>
+            h1{
+                text-align: center;
+                font-family: "Arial Black", Gadget, sans-serif;
+                font-size: 50px;
+                padding-top: 15px;
+                margin-top: 0px;
+                border-top: 0px;
+                padding-bottom: 30px;
+            }
+            #img1{
+                width: 200px;
+                height: 200px;
+                margin-left: 70px;
+                padding-right: 8px;
+            }
+            #img2{
+                width: 350px;
+                height: 200px;
+                padding-right: 8px;
+            }
+            #img3{
+                width: 350px;
+                height: 200px;
+                padding-right: 8px;
+                
+            }
+             body{
+                
+                  
+                background: -webkit-linear-gradient(left, #ff704d , #4d94ff);
+            }
+            p{
+                text-align: center;
+            }
+            button{
+                text-align: center;
+                margin-left: 485px;
+            }
+            #congrats{
+                text-align: center;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Image Lock</h1>
+        <div>
+            <img id="img1" onclick="unlock('1')" src="http://ichef-1.bbci.co.uk/news/660/cpsprodpb/025B/production/_85730600_monkey2.jpg">
+            <img id="img2" onclick="unlock('2')" src="http://animaliaz-life.com/data_images/lion/lion3.jpg">
+            <img id="img3" onclick="unlock('3')" src="http://science-all.com/images/wolf/wolf-02.jpg">
+            <br><br>
+            <button onclick="TryAgain();">Try Again</button>
+            <p id="code"></p>
+        </div>
+        <br>
+        <div id="congrats">
+        </div>
+        <script>
+            var passCode1 = random(1,4);
+            var passCode2 = random(1,4);
+            var passCode3 = random(1,4);
+            var passCode4 = random(1,4);
+            var passCode5 = random(1,4);
+            var passCode6 = random(1,4);
+            var total =  passCode1 + "" + passCode2 + "" + passCode3 + "" + passCode4 + "" + passCode5 + "" + passCode6;
+            var userInput = "";
+            
+            function createCode(){
+                document.getElementById("code").innerHTML = passCode1 + "," + passCode2 + "," + passCode3 + "," + passCode4 + "," + passCode5 + "," + passCode6;
+            }
+            createCode();
+            
+            function TryAgain(){
+                passCode1 = random(1,4);
+                passCode2 = random(1,4);
+                passCode3 = random(1,4);
+                passCode4 = random(1,4);
+                passCode5 = random(1,4);
+                passCode6 = random(1,4);
+                total =  passCode1 + "" + passCode2 + "" + passCode3 + "" + passCode4 + "" + passCode5 + "" + passCode6;
+                
+                createCode();
+                userInput = "";
+                document.getElementById("congrats").innerHTML = "";
+            }
+            
+            function random(min, max){
+                return parseInt(Math.random() * (max-min) + min);
+            }
+            
+            function unlock(x){
+                userInput +=x;
+                //userInput=x+userInput;
+                document.getElementById("congrats").innerHTML = userInput;
+                    
+                if(userInput == total){
+                   document.getElementById("congrats").innerHTML = "You solved the passcode!";
+                   
+               }
+            } 
+            
+        </script>
+    </body>
+</html>

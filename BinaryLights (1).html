@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            img{
+                width:204 px;
+            }           
+            body {                
+                background-image: url("https://media4.popsugar-assets.com/files/2015/04/24/750/n/1922398/79567de7_15-066.xxxlarge.jpg")
+         
+            }  
+            a{       
+            font-size: 400%;
+            font-family: Arial;            
+            } 
+            h1{
+                text-align: center;
+                color: white;
+                background-repeat: no-repeat;
+                
+            }
+        </style> 
+    </head>
+<body>                          
+    <br>   
+    <h1>Binary Lights</h1>
+        <div style="text-align: center; background-color: black; color: white;">
+        
+            <img id="1" onclick ="changeImage(1)" src="http://i.imgur.com/9BUDH.png" width="20%" height="20%">
+            <img id="2" onclick ="changeImage(2)" src="http://i.imgur.com/9BUDH.png" width="20%" height="20%">
+            <img id="3" onclick ="changeImage(3)" src="http://i.imgur.com/9BUDH.png" width="20%" height="20%">
+            <img id="4" onclick ="changeImage(4)" src="http://i.imgur.com/9BUDH.png" width="20%" height="20%">
+        
+            
+
+            <a id="5">0</a>
+            <a id="6">0</a>
+            <a id="7">0</a>
+            <a id="8">0</a>
+            <br>
+        <a></a>
+        <hr>
+    </div>
+
+    <script>         
+             function changeImage(x){
+                 
+                 if(document.getElementById(x).src == "http://i.imgur.com/9BUDH.png"){
+                    document.getElementById(x).src = "http://i.imgur.com/2DOte.png";
+                    document.getElementById(x+4).innerHTML = 1;
+                 }
+                 
+                 else{
+                    document.getElementById(x).src= "http://i.imgur.com/9BUDH.png";
+                     document.getElementById(x+4).innerHTML = 0;
+                 }        
+         }  
+    </script>
+</body>
+</html>
